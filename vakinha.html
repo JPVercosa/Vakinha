@@ -4,10 +4,9 @@
 	<title>Simple Storage</title>
 	<script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.34/dist/web3.min.js"></script>
 	<script type="text/javascript">
-		const contract_address = "0x80aec1d099A6038Cd0169625A0C6e8c2e46b68a5";
+		const contract_address = "0xa65e2ddd7b5879e6a9746d59000f532b0a264336";
 
 		const contract_abi = [
-[
 	{
 		"inputs": [],
 		"stateMutability": "nonpayable",
@@ -122,7 +121,6 @@
 		"stateMutability": "view",
 		"type": "function"
 	}
-]
 		];
 
 		const ethEnabled = () => {
@@ -138,29 +136,46 @@
 		  window.coinbase = await window.web3.eth.getCoinbase();
 		};
 
-		async function getAndShowVal () {
-		  var val = window.SimpleStorage.methods.get().call();
-			document.getElementById("storedData").value = await val;
+		async function getAndShowSaldo () {
+		  var val = window.Vakinha.methods.get().call();
+			document.getElementById("saldo").value = await val;
+		};
+		
+		async function getAndShowContador () {
+		  var val = window.Vakinha.methods.get().call();
+			document.getElementById("contadorDeDoaçoes").value = await val;
+		};
+		
+		async function getAndShowUltimo () {
+		  var val = window.Vakinha.methods.get().call();
+			document.getElementById("ultimoValorEnviado").value = await val;
+		};
+		
+		async function getAndShowFalta () {
+		  var val = window.Vakinha.methods.get().call();
+			document.getElementById("faltaParaFim").value = await val;
 		};
 
 		async function setVal () {
 			var val = document.getElementById("storedData").value;
-		  window.SimpleStorage.methods.set(val).send(val, {from:window.coinbase});
+		  window.Vakinha.methods.set(val).send(val, {from:window.coinbase});
 		}
 
 		if (!ethEnabled()) {
 		  alert("Metamask or browser with Ethereum not detected!");
 		}
 		else {
-			window.SimpleStorage = new web3.eth.Contract(contract_abi, contract_address);
+			window.Vakinha = new web3.eth.Contract(contract_abi, contract_address);
 			saveCoinbase();
 		}
 
 	</script>
 </head>
 <body>
-	<button id="getme" onclick="getAndShowVal()">Get</button>
-	StoredData: <input type="text" name="storedData" id="storedData">
+	<button id="getsaldo" onclick="getAndShowSaldo()">Saldo</button>
+	<button id="getcontador" onclick="getAndShowContador()">Contador</button>
+	<button id="getultimo" onclick="getAndShowUltimo()">Ultimo</button>
+	<button id="getfalta" onclick="getAndShowFalta()">Falta</button>
 	<button id="setme" onclick="setVal()">Set</button>
 </body>
 </html>
