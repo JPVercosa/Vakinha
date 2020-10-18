@@ -122,8 +122,6 @@
 	}
 		];
 		
-		var thecontract = web3.eth.contract(contract_abi);
-		var MyContract = thecontract.at(contract_address);
 
 		const ethEnabled = () => {
 		  if (window.ethereum) {
@@ -159,9 +157,8 @@
 		};
 
 		async function callDoar () {
-			var etherAmount = web3.toBigNumber($("DoeAqui").val());
-  			var weiValue = web3.toWei(etherAmount,'ether');
-  			MyContract.deposit({from: web3.eth.accounts[0], gas: gasValue, value: weiValue}, function(err, res){ })
+			var val = document.getElementById("DoeAqui").value;
+			window.Vakinha.methods.doar(contract.deposit({'value': val}, function (err, result){ }).call();
 		}
 
 		if (!ethEnabled()) {
