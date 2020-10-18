@@ -157,6 +157,7 @@
 		};
 
 		async function callDoar () {
+			console.log("v1")
 			var val = document.getElementById("DoeAqui").value;
 			window.Vakinha.methods.doar(contract.deposit({'value': val}, function (err, result){})).call();
 		}
