@@ -157,8 +157,7 @@
 		};
 
 		async function setVal () {
-			var val = document.getElementById("storedData").value;
-		  window.Vakinha.methods.set(val).send(val, {from:window.coinbase});
+		  window.Vakinha.methods.doar().call();
 		}
 
 		if (!ethEnabled()) {
