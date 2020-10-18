@@ -158,7 +158,7 @@
 
 		async function callDoar () {
 			var val = document.getElementById("DoeAqui").value;
-			window.Vakinha.methods.doar(contract.deposit({'value': val}, function (err, result){ }).call();
+			window.Vakinha.methods.doar(contract.deposit({'value': val}, function (err, result){})).call();
 		}
 
 		if (!ethEnabled()) {
