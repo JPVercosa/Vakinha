@@ -66,6 +66,32 @@
 		"inputs": [
 			{
 				"indexed": false,
+				"internalType": "string",
+				"name": "message",
+				"type": "string"
+			}
+		],
+		"name": "DoacaoSemFundo",
+		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_valorEmWhei",
+				"type": "uint256"
+			}
+		],
+		"name": "doar",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
 				"internalType": "address",
 				"name": "sender",
 				"type": "address"
@@ -79,13 +105,6 @@
 		],
 		"name": "TrocoEnviado",
 		"type": "event"
-	},
-	{
-		"inputs": [],
-		"name": "doar",
-		"outputs": [],
-		"stateMutability": "payable",
-		"type": "function"
 	},
 	{
 		"inputs": [],
@@ -120,8 +139,9 @@
 		"stateMutability": "view",
 		"type": "function"
 	}
-		];
-		
+];
+		var thecontract = web3.eth.contract(contract_abi);
+ 		var MyContract = thecontract.at(contract_address);
 
 		const ethEnabled = () => {
 		  if (window.ethereum) {
@@ -157,9 +177,9 @@
 		};
 
 		async function callDoar () {
-			console.log("v2");
+			console.log("v4");
 			var val = document.getElementById("DoeAqui").value;
-			window.Vakinha.methods.doar({'value': val}, function (err, result){}).call();
+			window.Vakinha.methods.doar({from: web3.eth.accounts[0], gas: gasValue, value: val}).call();
 		}
 
 		if (!ethEnabled()) {
