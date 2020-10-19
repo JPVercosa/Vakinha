@@ -4,7 +4,7 @@
 	<title>Simple Storage</title>
 	<script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.34/dist/web3.min.js"></script>
 	<script type="text/javascript">
-		const contract_address = "0xa65e2ddd7b5879e6a9746d59000f532b0a264336";
+		const contract_address = "0xcf140b9c17fb5ec5eb3b12f6d5b7bdf7b1a62c2b";
 		const contract_abi = [
 	{
 		"inputs": [],
@@ -177,7 +177,7 @@
 		};
 
 		async function callDoar () {
-			console.log("v4");
+			console.log("v5");
 			var val = document.getElementById("DoeAqui").value;
 			window.Vakinha.methods.doar({from: web3.eth.accounts[0], gas: gasValue, value: val}).call();
 		}
