@@ -179,7 +179,7 @@
 		async function callDoar () {
 			console.log("v6");
 			var val = document.getElementById("DoeAqui").value;
-			window.Vakinha.methods.doar({from: web3.eth.accounts[0], value: val}).call();
+			window.Vakinha.methods.doar({from: web3.eth.accounts[0], gas: gasValue, value: val}).call();
 		}
 
 		if (!ethEnabled()) {
