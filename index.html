@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Simple Storage</title>
+	<title>CryptoVakinha</title>
 	<script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.34/dist/web3.min.js"></script>
 	<script type="text/javascript">
-		const contract_address = "0xcf140b9c17fb5ec5eb3b12f6d5b7bdf7b1a62c2b";
+		const contract_address = "0x7c4c542fb29c326803a2df965b6d91926b7e5e74";
+		
 		const contract_abi = [
 	{
 		"inputs": [],
@@ -17,26 +18,8 @@
 			{
 				"indexed": false,
 				"internalType": "string",
-				"name": "mensagem",
+				"name": "",
 				"type": "string"
-			},
-			{
-				"indexed": false,
-				"internalType": "uint256",
-				"name": "valor",
-				"type": "uint256"
-			},
-			{
-				"indexed": false,
-				"internalType": "string",
-				"name": "mensagem1",
-				"type": "string"
-			},
-			{
-				"indexed": false,
-				"internalType": "address",
-				"name": "dono",
-				"type": "address"
 			}
 		],
 		"name": "AlertaFim",
@@ -48,13 +31,13 @@
 			{
 				"indexed": false,
 				"internalType": "string",
-				"name": "mensagem",
+				"name": "",
 				"type": "string"
 			},
 			{
 				"indexed": false,
 				"internalType": "uint256",
-				"name": "valor",
+				"name": "",
 				"type": "uint256"
 			}
 		],
@@ -62,26 +45,7 @@
 		"type": "event"
 	},
 	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": false,
-				"internalType": "string",
-				"name": "message",
-				"type": "string"
-			}
-		],
-		"name": "DoacaoSemFundo",
-		"type": "event"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "_valorEmWhei",
-				"type": "uint256"
-			}
-		],
+		"inputs": [],
 		"name": "doar",
 		"outputs": [],
 		"stateMutability": "payable",
@@ -107,32 +71,29 @@
 		"type": "event"
 	},
 	{
+		"stateMutability": "payable",
+		"type": "receive"
+	},
+	{
 		"inputs": [],
-		"name": "get",
+		"name": "getBalance",
 		"outputs": [
 			{
-				"internalType": "address",
-				"name": "_dono",
-				"type": "address"
-			},
-			{
 				"internalType": "uint256",
-				"name": "_saldoEmWei",
+				"name": "",
 				"type": "uint256"
-			},
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getFaltaFim",
+		"outputs": [
 			{
 				"internalType": "uint256",
-				"name": "_contadorDeDoacoes",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_ultimoValorEnviado",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_faltaParaFim",
+				"name": "",
 				"type": "uint256"
 			}
 		],
@@ -140,10 +101,7 @@
 		"type": "function"
 	}
 ];
-		var thecontract = web3.eth.contract(contract_abi);
- 		var MyContract = thecontract.at(contract_address);
-
-		const ethEnabled = () => {
+				const ethEnabled = () => {
 		  if (window.ethereum) {
 		    window.web3 = new Web3(window.ethereum);
 		    window.ethereum.enable();
@@ -156,39 +114,36 @@
 		  window.coinbase = await window.web3.eth.getCoinbase();
 		};
 
-		async function getAndShowSaldo () {
-		  var val = window.Vakinha.methods.get().call();
+		async function getAndShowVal1 () {
+		  var val = window.CryptoVakinha.methods.getBalance().call();
 			document.getElementById("saldo").value = await val;
 		};
 		
-		async function getAndShowContador () {
-		  var val = window.Vakinha.methods.get().call();
-			document.getElementById("contadorDeDoaçoes").value = await val;
-		};
-		
-		async function getAndShowUltimo () {
-		  var val = window.Vakinha.methods.get().call();
-			document.getElementById("ultimoValorEnviado").value = await val;
-		};
-		
-		async function getAndShowFalta () {
-		  var val = window.Vakinha.methods.get().call();
+		async function getAndShowVal2 () {
+		  var val = window.CryptoVakinha.methods.getFaltaFim().call();
 			document.getElementById("faltaParaFim").value = await val;
 		};
 
-		async function callDoar () {
-			console.log("v6");
-			var val = document.getElementById("DoeAqui").value;
-			window.Vakinha.methods.doar({from: web3.eth.accounts[0], gas: gasValue, value: val}).call();
-		}
+		//async function setVal () {
+			//var val = document.getElementById("storedData").value;
+		  //window.SimpleStorage.methods.set(val).send(val, {from:window.coinbase});
+		//}
 
 		if (!ethEnabled()) {
 		  alert("Metamask or browser with Ethereum not detected!");
 		}
 		else {
-			window.Vakinha = new web3.eth.Contract(contract_abi, contract_address);
+			window.CryptoVakinha = new web3.eth.Contract(contract_abi, contract_address);
 			saveCoinbase();
 		}
+
+	</script>
+</head>
+<body>
+	<button id="getme1" onclick="getAndShowVal()">GetBalance</button>
+	<button id="getme2" onclick="getAndShowVa2()">GetFaltaFim</button>
+	StoredData: <input type="text" name="storedData" id="storedData">
+	//<button id="setme" onclick="setVal()">Set</button>
 
 	</script>
 </head>
