@@ -4,7 +4,7 @@
 	<title>CryptoVakinha</title>
 	<script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.34/dist/web3.min.js"></script>
 	<script type="text/javascript">
-		const contract_address = "0x7c4c542fb29c326803a2df965b6d91926b7e5e74";
+		const contract_address = "0x5cce31f9a947878a904b44dcfcc7feac89ee262b";
 		
 		const contract_abi = [
 	{
@@ -101,7 +101,8 @@
 		"type": "function"
 	}
 ];
-				const ethEnabled = () => {
+		
+		const ethEnabled = () => {
 		  if (window.ethereum) {
 		    window.web3 = new Web3(window.ethereum);
 		    window.ethereum.enable();
@@ -124,11 +125,6 @@
 			document.getElementById("faltaParaFim").value = await val;
 		};
 
-		//async function setVal () {
-			//var val = document.getElementById("storedData").value;
-		  //window.SimpleStorage.methods.set(val).send(val, {from:window.coinbase});
-		//}
-
 		if (!ethEnabled()) {
 		  alert("Metamask or browser with Ethereum not detected!");
 		}
@@ -147,7 +143,9 @@
 	<button id="getme2" onclick="getAndShowFaltaFim()">Ver</button>
 	<br><br>
 	<p>Endereço para fazer a sua doação:</p>
-	<h1>0x7c4c542fb29c326803a2df965b6d91926b7e5e74</h1>
-
+	<h1>0x5cce31f9a947878a904b44dcfcc7feac89ee262b</h1>
+	<p>Caso o MetaMask exiba uma falha ao interagir com o contrato, provavelmente já alcançamos a meta para essa Vakinha e as cripto moedas foram enviadas ao dono do contrato!</p>
+	<br><br>
+	<p>Nesse caso você deve verificar se 0 Whei para alcançarmos a meta! Obrigado pelo interesse de participar.</p>
 </body>
 </html>
