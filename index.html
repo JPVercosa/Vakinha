@@ -114,12 +114,12 @@
 		  window.coinbase = await window.web3.eth.getCoinbase();
 		};
 
-		async function getAndShowVal1 () {
+		async function getAndShowSaldo () {
 		  var val = window.CryptoVakinha.methods.getBalance().call();
 			document.getElementById("saldo").value = await val;
 		};
 		
-		async function getAndShowVal2 () {
+		async function getAndShowFaltaFim () {
 		  var val = window.CryptoVakinha.methods.getFaltaFim().call();
 			document.getElementById("faltaParaFim").value = await val;
 		};
@@ -140,8 +140,8 @@
 	</script>
 </head>
 <body>
-	<button id="getme1" onclick="getAndShowVal()">GetBalance</button>
-	<button id="getme2" onclick="getAndShowVa2()">GetFaltaFim</button>
+	<button id="getme1" onclick="getAndShowSaldo()">GetBalance</button>
+	<button id="getme2" onclick="getAndShowFaltaFim()">GetFaltaFim</button>
 	Data: <input type="text" name="storedData" id="storedData">
 	<!--<button id="setme" onclick="setVal()">Set</button>-->
 </body>
