@@ -127,11 +127,18 @@
 		};
 
 		async function setDoar () {
-        var msg = 1000000000000000000*parseInt(document.getElementById("aposta").value);
-        window.CryptoVakinha.methods.doar().send({from:window.coinbase, to: contract_address, value: msg});
+          var msg = 1000000000000000000*parseInt(document.getElementById("aposta").value);
+        	window.CryptoVakinha.methods.doar().send({from:window.coinbase, to: contract_address, value: msg});
 		
 		}
 
+		function CopyFunction() {
+  		var copyText = document.getElementById("copyInput");
+  		  copyText.select();
+  		  copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+ 		  document.execCommand("copy");
+		  alert("Copied the text: " + copyText.value);
+		}
 		if (!ethEnabled()) {
 		  alert("Metamask or browser with Ethereum not detected!");
 		}
@@ -178,30 +185,40 @@
     <img class="mb-4" src="/docs/4.5/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
     <h1 class="h2 mb-3 font-weight-normal">Bem vindo ao CryptoVakinhas!</h1>
     <h1 class="h3 mb-3 font-weight-normal">Você está visualizando a página do contrato 0x5cce31f9a947878a904b44dcfcc7feac89ee262b</h1>
-	<table class="table table-striped">
+	<table class="table table-borderless">
 		<tbody>
 			<tr>
-				<th scope="row"></th>
+				<td></td>
 				<td><label for="saldo">Saldo do contrato:</label></td>
 				<td><input type="text" name="saldo" id="saldo" readonly></td>
 				<td><button class="btn btn-primary" id="getme1" onclick="getAndShowSaldo()">Ver</button></td>
+				<td colspan="5"></td>
 			</tr>
 			<tr>
-				<th scope="row"></th>
+				<td></td>
 				<td><label for="faltaParaFim">Falta para a meta do contrato:</label></td>
 				<td><input type="text" name="faltaParaFim" id="faltaParaFim" readonly></td>
 				<td><button class="btn btn-primary" id="getme2" onclick="getAndShowFaltaFim()">Ver</button></td>
+				<td colspan="5"></td>
 			</tr>
 			<tr>
-				<th scope="row"></th>
+				<td></td>
 				<td><label for="doar">Falta para a meta do contrato</label></td>
 				<td><input type="text" name="doar" id="doar"></td>
 				<td><button class="btn btn-primary" id="getme3" onclick="setDoar()">Doar</button></td>
+				<td colspan="5"></td>
 			</tr>
 		</tbody>
 	</table>
-
-    <p class="mt-5 mb-3 text-muted">&copy; 2020 - INF-1035 - CryptoVakinha</p>
+		<label for="CopyInput">Você também pode fazer uma doação enviando Ether direto para o endereço do contato via MetaMask:</label>
+	<br><br>
+	<div class="form-group row">
+		<div class="col-xs-20">
+			<input class="form-control" type="text" value="0x5cce31f9a947878a904b44dcfcc7feac89ee262b" id="copyInput" readonly>
+		</div>
+		<button onclick="copyFunction()">Copy Contrato</button>
+	</div>
+	<p class="mt-5 mb-3 text-muted">&copy; 2020 - INF-1035 - CryptoVakinha</p>
 	</div>
 	
 	<!--Saldo do Contrato em Whei: <input type="text" name="saldo" id="saldo" readonly>
