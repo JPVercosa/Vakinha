@@ -129,7 +129,6 @@
 		async function setDoar () {
           var msg = 1000000000000000000*parseInt(document.getElementById("doar").value);
         	window.CryptoVakinha.methods.doar().send({from:window.coinbase, to: contract_address, value: msg});
-		
 		}
 
 		function copyFunction() {
@@ -182,9 +181,9 @@
   </div>
 </header>
 <div class='container'>
-    <img class="mb-4" src="/docs/4.5/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+    <img class="mb-4" src="/imgs/VakinhaIcon.png">
     <h1 class="h2 mb-3 font-weight-normal">Bem vindo ao CryptoVakinhas!</h1>
-    <h1 class="h3 mb-3 font-weight-normal">Você está visualizando a página do contrato 0x5cce31f9a947878a904b44dcfcc7feac89ee262b</h1>
+    <h1 class="h3 mb-3 font-weight-normal">Você está visualizando a página do contrato: 0x5cce31f9a947878a904b44dcfcc7feac89ee262b</h1>
 	<table class="table table-borderless">
 		<tbody>
 			<tr>
@@ -203,7 +202,7 @@
 			</tr>
 			<tr>
 				<td></td>
-				<td><label for="doar">Falta para a meta do contrato</label></td>
+				<td><label for="doar">Faça sua doação:</label></td>
 				<td><input type="text" name="doar" id="doar"></td>
 				<td><button class="btn btn-primary" id="getme3" onclick="setDoar()">Doar</button></td>
 				<td colspan="5"></td>
@@ -216,23 +215,11 @@
 		<div class="col-xs-20">
 			<input class="form-control" type="text" value="0x5cce31f9a947878a904b44dcfcc7feac89ee262b" id="copyInput" readonly>
 		</div>
-		<button onclick="copyFunction()">Copy Contrato</button>
+		<button onclick="copyFunction()">Copiar Endereço do Contrato</button>
 	</div>
 	<p class="mt-5 mb-3 text-muted">&copy; 2020 - INF-1035 - CryptoVakinha</p>
 	</div>
-	
-	<!--Saldo do Contrato em Whei: <input type="text" name="saldo" id="saldo" readonly>
-	<button class="btn btn-primary" id="getme1" onclick="getAndShowSaldo()">Ver</button>
-	<br><br>
-	Falta para alcançar a Meta em Whei: <input type="text" name="faltaParaFim" id="faltaParaFim" readonly>
-	<button id="getme2" onclick="getAndShowFaltaFim()">Ver</button>
-	<br><br>
-	<p>Endereço para fazer a sua doação via MetaMask:</p>
-	<h1>0x5cce31f9a947878a904b44dcfcc7feac89ee262b</h1>
-	<br><br>
-	<p>Obs: Caso o MetaMask exiba uma falha ao interagir com o contrato, provavelmente já alcançamos a meta para essa Vakinha e as cripto moedas foram enviadas ao dono do contrato!</p>
-	<p>Nesse caso você deve verificar se faltam 0 Whei para alcançarmos a meta! Obrigado pelo interesse em participar.</p>-->
-	
+		
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 </body>
