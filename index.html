@@ -127,12 +127,12 @@
 		};
 
 		async function setDoar () {
-          var msg = 1000000000000000000*parseInt(document.getElementById("aposta").value);
+          var msg = 1000000000000000000*parseInt(document.getElementById("doar").value);
         	window.CryptoVakinha.methods.doar().send({from:window.coinbase, to: contract_address, value: msg});
 		
 		}
 
-		function CopyFunction() {
+		function copyFunction() {
   		var copyText = document.getElementById("copyInput");
   		  copyText.select();
   		  copyText.setSelectionRange(0, 99999); /*For mobile devices*/
