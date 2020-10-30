@@ -126,6 +126,12 @@
 			document.getElementById("faltaParaFim").value = await val;
 		};
 
+		async function setDoar () {
+        var msg = 1000000000000000000*parseInt(document.getElementById("aposta").value);
+        window.CryptoVakinha.methods.doar().send({from:window.coinbase, to: contract_address, value: msg});
+		
+		}
+
 		if (!ethEnabled()) {
 		  alert("Metamask or browser with Ethereum not detected!");
 		}
@@ -169,17 +175,21 @@
   </div>
 </header>
 <div class='container'>
-  <img class="mb-4" src="/docs/4.5/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-  <h1 class="h2 mb-3 font-weight-normal">Bem vindo ao CryptoVakinhas!</h1>
-  <h1 class="h3 mb-3 font-weight-normal">Você está visualizando a página do contrato 0x5cce31f9a947878a904b44dcfcc7feac89ee262b</h1>
-  <label for="saldo" class="sr-only">Saldo do contrato</label>
-  <input type="text" name="saldo" id="saldo" readonly>
-  <button class="btn btn-primary" id="getme1" onclick="getAndShowSaldo()">Ver</button>
+    <img class="mb-4" src="/docs/4.5/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+    <h1 class="h2 mb-3 font-weight-normal">Bem vindo ao CryptoVakinhas!</h1>
+    <h1 class="h3 mb-3 font-weight-normal">Você está visualizando a página do contrato 0x5cce31f9a947878a904b44dcfcc7feac89ee262b</h1>
+    <label for="saldo"></label>Saldo do contrato</label>
+    <input type="text" name="saldo" id="saldo" readonly>
+    <button class="btn btn-primary" id="getme1" onclick="getAndShowSaldo()">Ver</button>
 		<br><br>
-  <label for="faltaParaFim" class="sr-only">Falta para a meta do contrato</label>
-  <input type="text" name="faltaParaFim" id="faltaParaFim" readonly>
-  <button class="btn btn-primary" id="getme2" onclick="getAndShowFaltaFim()">Ver</button>
-  <p class="mt-5 mb-3 text-muted">&copy; 2020 - INF-1035 - CryptoVakinha</p>
+    <label for="faltaParaFim">Falta para a meta do contrato</label>
+    <input type="text" name="faltaParaFim" id="faltaParaFim" readonly>
+    <button class="btn btn-primary" id="getme2" onclick="getAndShowFaltaFim()">Ver</button>
+		<br><br>
+	<label for="doar">Falta para a meta do contrato</label>
+	<input type="text" name="doar" id="doar">
+	<button class="btn btn-primary" id="getme3" onclick="setDoar()">Doar</button>
+    <p class="mt-5 mb-3 text-muted">&copy; 2020 - INF-1035 - CryptoVakinha</p>
 	</div>
 	
 	<!--Saldo do Contrato em Whei: <input type="text" name="saldo" id="saldo" readonly>
